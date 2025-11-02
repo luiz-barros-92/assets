@@ -41,9 +41,7 @@ SELECT * FROM funcionarios;
 SELECT * FROM funcionarios WHERE departamento = 'Tecnologia';
 
 
--- auxiliary seed
--- Seed Auxiliar com 10 Novos Funcionários
-
+-- auxiliary seed with 10 new employees
 INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
 VALUES ('Felipe Mendes', 'Tecnologia', 8500.00, '2023-01-20');
 
@@ -75,7 +73,33 @@ INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
 VALUES ('Patrícia Reis', 'Recursos Humanos', 3750.00, '2024-07-03');
 
 
+-- select name upper case as 'Nome do Funcionario' as well departamento as 'Área de Atuação'
+SELECT
+    UPPER(nome) AS "Nome do Funcionário",
+    departamento AS "Área de Atuação"
+FROM
+    funcionarios;
 
 
+-- sum, group by, order by
+SELECT
+    departamento AS "Área de Atuação",
+    SUM(salario) AS "Total de Salários"
+FROM
+    funcionarios
+GROUP BY
+    departamento
+ORDER BY
+    2 DESC;
 
+
+-- search with 'LIKE'
+SELECT
+    nome AS "Nome do Funcionário",
+    departamento,
+    salario
+FROM
+    funcionarios
+WHERE
+    nome LIKE 'A%';
 
