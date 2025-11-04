@@ -17,3 +17,13 @@ UPDATE funcionarios
 SET salario = salario * 1.10
 WHERE id = 19;
 
+-- UPDATE any value
+UPDATE funcionarios
+SET salario = 5000.00
+WHERE id = 19;
+
+-- DELETE data where salario >= 5000 in 'tenologia'
+DELETE FROM funcionarios
+WHERE
+    departamento = 'tecnologia' AND salario >= 5000.00;
+
