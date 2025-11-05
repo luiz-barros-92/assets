@@ -34,3 +34,8 @@ WHERE
 ALTER TABLE funcionarios
 ADD COLUMN email VARCHAR(255);
 
+
+-- MODIFY from decimal to float
+ALTER TABLE funcionarios
+MODIFY COLUMN salario FLOAT;
+
