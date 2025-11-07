@@ -39,3 +39,11 @@ ADD COLUMN email VARCHAR(255);
 ALTER TABLE funcionarios
 MODIFY COLUMN salario FLOAT;
 
+-- DROP data_admissao
+ALTER TABLE funcionarios
+DROP COLUMN data_admissao;
+
+-- UNIQUE constraint
+ALTER TABLE funcionarios
+ADD CONSTRAINT uq_email UNIQUE (email);
+
