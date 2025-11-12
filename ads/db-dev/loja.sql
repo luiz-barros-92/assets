@@ -1,0 +1,8 @@
+-- create table Estado
+
+CREATE TABLE Estado (
+ID INT PRIMARY KEY AUTO_INCREMENT,
+Nome VARCHAR(50) NOT NULL,
+UF CHAR(2) NOT NULL
+);
+
