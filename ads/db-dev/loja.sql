@@ -18,19 +18,37 @@ CREATE TABLE Municipio (
         REFERENCES Estado (ID)
 );
 
--- create Cliente
+-- create table Cliente
 CREATE TABLE Cliente (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(80) NOT NULL,
     CPF CHAR(11) NOT NULL,
     Celular CHAR(11),
     EndLogradouro VARCHAR(100) NOT NULL,
-    EndNumero VARCHAR(10) NOT NULL,
-    EndMunicipio CHAR(20) NOT NULL,
+    EndNumero VARCHAR(10) NOT NULL,    
     EndCEP CHAR(8),
     Municipio_ID INT NOT NULL,    
     
     CONSTRAINT fk_Cliente_Municipio1_idx
         FOREIGN KEY (Municipio_ID)
         REFERENCES Municipio (ID)
+);
+
+-- create table ContaReceber
+CREATE TABLE ContaReceber (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Cliente_ID INT NOT NULL,
+    FaturaVendaID INT,
+    DataConta DATE NOT NULL,
+    DataVencimento DATE NOT NULL,
+    Valor DECIMAL(18, 2) NOT NULL,
+    
+    Situação ENUM('1', '2', '3') NOT NULL 
+        COMMENT '1=Conta registrada, 
+                 2=Conta cancelada, 
+                 3=Conta paga',
+    
+    CONSTRAINT fk_ContaReceber_Cliente_idx
+        FOREIGN KEY (Cliente_ID)
+        REFERENCES Cliente (ID)
 );
