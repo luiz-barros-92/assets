@@ -1,49 +1,61 @@
--- auxiliary db seed
-INSERT INTO funcionarios (nome, departamento, salario, data_admissao) VALUES
-('Luisa Martins', 'Marketing', 4100.00, '2023-08-15'),
-('Pedro Henrique', 'Tecnologia', 7500.25, '2022-03-20'),
-('Fabiola Rocha', 'Financeiro', 5800.00, '2024-01-10'),
-('Ricardo Almeida', 'Vendas', 3950.00, '2023-11-01'),
-('Gabriela Nunes', 'Recursos Humanos', 4550.75, '2022-07-25'),
-('Vitor Santos', 'Tecnologia', 6120.50, '2024-05-15'),
-('Mariana Lima', 'Marketing', 4700.00, '2023-04-18'),
-('Julio César', 'Financeiro', 7000.00, '2022-09-05'),
-('Sofia Oliveira', 'Vendas', 4380.25, '2024-02-28'),
-('Elias Ferreira', 'Tecnologia', 5350.00, '2023-10-10');
+-- Seed auxiliar de dados
+INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
+VALUES ('Taylor Doose', 'TI', 7100.00, '2025-01-20');
+
+INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
+VALUES ('Jules Ostin', 'Recursos Humanos', 5100.00, '2024-12-15');
+
+INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
+VALUES ('Alan Turing', 'TI', 8500.00, '2024-11-10');
+
+INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
+VALUES ('Sherlock Holmes', 'TI', 6800.00, '2025-03-01');
+
+INSERT INTO funcionarios (nome, departamento, salario, data_admissao)
+VALUES ('Miranda Priestly', 'Recursos Humanos', 6200.00, '2025-02-18');
 
 
--- 10% rise
+-- Aumento de 10%
 UPDATE funcionarios
 SET salario = salario * 1.10
-WHERE id = 19;
+WHERE id = 12;
 
 
--- UPDATE any value
-UPDATE funcionarios
-SET salario = 5000.00
-WHERE id = 19;
-
-
--- DELETE data where salario >= 5000 in 'tenologia'
+-- Exclusão de funcionários de TI que salário seja >= 7000
 DELETE FROM funcionarios
 WHERE
-    departamento = 'tecnologia' AND salario >= 5000.00;
+    departamento = 'TI'
+    AND salario >= 7000.00;
 
 
--- add new column
+-- Adicionar nova coluna a funcionarios
 ALTER TABLE funcionarios
 ADD COLUMN email VARCHAR(255);
 
+-- Seed da nova coluna
+UPDATE `empresa`.`funcionarios` SET `email` = 'james@gmail.com' WHERE (`id` = '1');
+UPDATE `empresa`.`funcionarios` SET `email` = 'ellen@gmail.com' WHERE (`id` = '2');
+UPDATE `empresa`.`funcionarios` SET `email` = 'tony@gmail.com' WHERE (`id` = '3');
+UPDATE `empresa`.`funcionarios` SET `email` = 'miranda@gmail.com' WHERE (`id` = '15');
+UPDATE `empresa`.`funcionarios` SET `email` = 'sherlock@gmail.com' WHERE (`id` = '14');
+UPDATE `empresa`.`funcionarios` SET `email` = 'jules@gmail.com' WHERE (`id` = '12');
+UPDATE `empresa`.`funcionarios` SET `email` = 'john@gmail.com' WHERE (`id` = '10');
+UPDATE `empresa`.`funcionarios` SET `email` = 'leia@gmail.com' WHERE (`id` = '9');
+UPDATE `empresa`.`funcionarios` SET `email` = 'indiana@gmail.com' WHERE (`id` = '8');
+UPDATE `empresa`.`funcionarios` SET `email` = 'sarah@gmail.com' WHERE (`id` = '7');
+UPDATE `empresa`.`funcionarios` SET `email` = 'clarice@gmail.com' WHERE (`id` = '5');
+UPDATE `empresa`.`funcionarios` SET `email` = 'bruce@gmail.com' WHERE (`id` = '4');
 
--- MODIFY from decimal to float
+
+-- Alterar tipo da coluna 'salario' para FLOAT
 ALTER TABLE funcionarios
 MODIFY COLUMN salario FLOAT;
 
--- DROP data_admissao
+-- Remover a coluna 'data_admissao'
 ALTER TABLE funcionarios
 DROP COLUMN data_admissao;
 
--- UNIQUE constraint
+-- email recebe UNIQUE constraint
 ALTER TABLE funcionarios
 ADD CONSTRAINT uq_email UNIQUE (email);
 
