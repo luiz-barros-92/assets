@@ -14,7 +14,7 @@ INSERT INTO Municipio (ESTADO_ID, Nome, CodIBGE) VALUES
 (3, 'Rio de Janeiro', 3304557);
 
 
--- SEED NA TABELA 'Cliente' (FILHO de Municipio)
+-- SEED NA TABELA 'Cliente'
 -- IDs gerados automaticamente em Municipio 1=São Paulo, 2=Campinas, 3=Florianópolis, 4=Rio de Janeiro
 INSERT INTO Cliente (Nome, CPF, Celular, EndLogradouro, EndNumero, EndCEP, Municipio_ID) VALUES
 ('Ana Maria da Silva', '12345678901', '11987654321', 'Rua das Flores', '100', '01000000', 1),
