@@ -1,13 +1,20 @@
--- create table Estado
+-- Criar banco de dados loja
+CREATE DATABASE loja;
 
+
+-- Selecionando banco de dados
+USE loja;
+
+
+-- criar tabela Estado
 CREATE TABLE Estado (
 ID INT PRIMARY KEY AUTO_INCREMENT,
 Nome VARCHAR(50) NOT NULL,
 UF CHAR(2) NOT NULL
 );
 
--- create table Municipio
 
+-- criar tabela Municipio
 CREATE TABLE Municipio (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     ESTADO_ID INT NOT NULL,
@@ -19,25 +26,24 @@ CREATE TABLE Municipio (
         REFERENCES Estado (ID)
 );
 
--- create table Cliente
-
+-- criar tabela Cliente
 CREATE TABLE Cliente (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(80) NOT NULL,
     CPF CHAR(11) NOT NULL,
     Celular CHAR(11),
     EndLogradouro VARCHAR(100) NOT NULL,
-    EndNumero VARCHAR(10) NOT NULL,    
+    EndNumero VARCHAR(10) NOT NULL,
     EndCEP CHAR(8),
-    Municipio_ID INT NOT NULL,    
+    Municipio_ID INT NOT NULL,
     
     CONSTRAINT fk_Cliente_Municipio1_idx
         FOREIGN KEY (Municipio_ID)
         REFERENCES Municipio (ID)
 );
 
--- create table ContaReceber
 
+-- criar tabela ContaReceber
 CREATE TABLE ContaReceber (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Cliente_ID INT NOT NULL,
