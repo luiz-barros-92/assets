@@ -7,6 +7,7 @@ UF CHAR(2) NOT NULL
 );
 
 -- create table Municipio
+
 CREATE TABLE Municipio (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     ESTADO_ID INT NOT NULL,
@@ -19,6 +20,7 @@ CREATE TABLE Municipio (
 );
 
 -- create table Cliente
+
 CREATE TABLE Cliente (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(80) NOT NULL,
@@ -35,6 +37,7 @@ CREATE TABLE Cliente (
 );
 
 -- create table ContaReceber
+
 CREATE TABLE ContaReceber (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Cliente_ID INT NOT NULL,
