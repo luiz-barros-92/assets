@@ -1,4 +1,4 @@
--- Criação da Visão (VIEW) para retornar Contas a Receber (Situação = 1)
+-- Criação da VIEW para retornar Contas a Receber (Situação = 1)
 CREATE VIEW vw_contas_abertas AS
 SELECT
     CR.ID AS ID_Conta,
